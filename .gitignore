@@ -1,0 +1,4 @@
+# File Types to Exclude
+*.DS_Store
+
+# File Directories to Exclude
