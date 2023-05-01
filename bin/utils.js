@@ -1,4 +1,4 @@
-module.exports = { showTest: showTest, showHelp: showHelp, showWord: showWord, curDir: curDir };
+module.exports = { showTest: showTest, showHelp: showHelp, showWord: showWord, curDir: curDir, addOne: addOne };
 function showHelp() {
     console.log('\nOptions:\r');
     console.log('\t--version\t      ' + 'Show version number.' + '\t\t' + '[boolean]\r');
@@ -12,5 +12,10 @@ function showWord(word) {
     console.log('\nWord Kicked Back: ' + word + '\r');
 };
 function curDir(word) {
+
     console.log(__dirname);
+};
+function addOne(word) {
+    
+    console.log(Number(word) + 1);
 };
