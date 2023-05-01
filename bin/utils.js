@@ -1,4 +1,4 @@
-module.exports = { showTest: showTest, showHelp: showHelp };
+module.exports = { showTest: showTest, showHelp: showHelp, showWord: showWord, curDir: curDir };
 function showHelp() {
     console.log('\nOptions:\r');
     console.log('\t--version\t      ' + 'Show version number.' + '\t\t' + '[boolean]\r');
@@ -8,4 +8,9 @@ function showHelp() {
 function showTest() {
     console.log('\nTest Works!\r');
 };
-
+function showWord(word) {
+    console.log('\nWord Kicked Back: ' + word + '\r');
+};
+function curDir(word) {
+    console.log(__dirname);
+};
