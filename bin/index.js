@@ -1,6 +1,8 @@
 #! /usr/bin/env node
 const utils = require('./utils.js')
 const fs = require('fs')
+const { exec } = require("child_process");
+
 
 yargs = require("yargs");
 const usage = "\nUsage: mf <word> <-- to be kicked back";
@@ -32,12 +34,25 @@ if(yargs.argv.a == true || yargs.argv.addOne == true){
 // Saves directory of program to a file. 
 // TODO save current directory of command line to file with name
 if(yargs.argv.s == true || yargs.argv.saveDirectory == true){  
-      fs.writeFile('savedDirectories.json',__dirname, (err) => {
-            if (err) throw err;
-            else{
-                  console.log("the file is updated with data")
+
+      exec("pwd", (error, stdout, stderr) => {
+            if (error) {
+                console.log(`error: ${error.message}`);
+                return;
             }
-      }) 
+            if (stderr) {
+                console.log(`stderr: ${stderr}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+            const test1 = stdout;
+            fs.writeFile(__dirname + '/savedDirectories.json',test1, (err) => {
+                  if (err) throw err;
+                  else{
+                        console.log("the file is updated with data")
+                  }
+            }) 
+        });
 }
 if(yargs.argv._[0] == null){  
 
